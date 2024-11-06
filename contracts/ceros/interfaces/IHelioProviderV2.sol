@@ -3,6 +3,14 @@ pragma solidity ^0.8.0;
 
 interface IHelioProviderV2 {
     /**
+     * Structs
+     */
+    struct Delegation {
+        address delegateTo; // who helps delegator to hold clisBNB, aka the delegatee
+        uint256 amount;
+    }
+
+    /**
      * Events
      */
 
@@ -32,15 +40,21 @@ interface IHelioProviderV2 {
 
     event ChangeMasterVault(address masterVault);
 
-    event ChangeBNBStakingPool(address pool);
+    event ChangeBNBStakingPool(address pool, bool useStakeManagerPool);
 
     event ChangeLiquidationStrategy(address strategy);
+
+    event ChangeDelegateTo(address account, address oldDelegatee, address newDelegatee);
+    event ChangeGuardian(address oldGuardian, address newGuardian);
+
     /**
      * Deposit
      */
 
     // in BNB
     function provide() external payable returns (uint256);
+    function provide(address _delegateTo) external payable returns (uint256);
+    function delegateAllTo(address _newDelegateTo) external;
 
     // in aBNBc
     // function provideInABNBc(uint256 amount) external returns (uint256);
