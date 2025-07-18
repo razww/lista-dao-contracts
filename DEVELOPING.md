@@ -63,17 +63,6 @@ https://ethereum.stackexchange.com/a/23110
 
 `web3.utils.hexToAscii(val)`
 
-## REWARDS
-
-### View Reward balance
-`pendingRewards(<user_address>)` - Maximum amount of tokens that can be claimed by user.
-
-### Claim
-`claim(<user_address>, <amount>)` - Claim `amount` of user tokens and transfer them to the `user` wallet
-
-### View distribution APY
-`distributionApy()` - rate in percent (like borrowApr)
-
 ## Liquidation (DEV env) 
 
 1. Provide collateral
