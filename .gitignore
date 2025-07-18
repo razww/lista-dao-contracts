@@ -4,10 +4,19 @@ node_modules
 coverage
 coverage.json
 typechain
+typechain-types
 
 #Hardhat files
 cache
 artifacts
 
+# foundry
+cache_forge
+
+out
+
 .idea
 .DS_Store
+
+# Ignore the temporary files
+*temp.js
